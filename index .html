@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Registration and Authentication</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    form {
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>User Registration</h1>
+    <form id="registration-form">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required><br><br>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required><br><br>
+
+      <label for="confirm-password">Confirm Password:</label>
+      <input type="password" id="confirm-password" name="confirm-password" required><br><br>
+
+      <button type="submit">Register</button>
+    </form>
+
+    <hr>
+
+    <h1>User Login</h1>
+    <form id="login-form">
+      <label for="login-username">Username:</label>
+      <input type="text" id="login-username" name="login-username" required><br><br>
+
+      <label for="login-password">Password:</label>
+      <input type="password" id="login-password" name="login-password" required><br><br>
+
+      <button type="submit">Login</button>
+    </form>
+  </div>
+
+  <script>
+    const registrationForm = document.getElementById('registration-form');
+    const loginForm = document.getElementById('login-form');
+
+    registrationForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirm-password').value;
+
+      if (password !== confirmPassword) {
+        alert('Passwords do not match');
+        return;
+      }
+
+      // Store user data securely (e.g., in a database) and handle registration logic.
+      // You should perform server-side validation and hashing of passwords.
+      console.log(`User registered: Username - ${username}, Password - ${password}`);
+    });
+
+    loginForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const loginUsername = document.getElementById('login-username').value;
+      const loginPassword = document.getElementById('login-password').value;
+
+      // Authenticate user (e.g., check user credentials in the database).
+      // You should perform server-side authentication and password hashing.
+      console.log(`User logged in: Username - ${loginUsername}, Password - ${loginPassword}`);
+    });
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Real-Time and Historical Data Chart</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f4f4f4;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Real-Time and Historical Data Chart</h1>
+    <canvas id="dataChart"></canvas>
+  </div>
+
+  <script>
+    // Sample data for the chart (historical data)
+    const data = {
+      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+      datasets: [{
+        label: 'Data Series',
+        data: [10, 20, 15, 30, 25],
+        borderColor: '#007bff',
+        backgroundColor: 'rgba(0, 123, 255, 0.2)',
+      }]
+    };
+
+    const ctx = document.getElementById('dataChart').getContext('2d');
+    const chart = new Chart(ctx, {
+      type: 'line',
+      data: data,
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
+        },
+      },
+    });
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Device Integration Interface</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f4f4f4;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    .device {
+      margin: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+    .device h2 {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Device Integration Interface</h1>
+    
+    <div class="device">
+      <h2>Device 1</h2>
+      <!-- You can add HTML and buttons specific to Device 1 here -->
+    </div>
+    
+    <div class="device">
+      <h2>Device 2</h2>
+      <!-- You can add HTML and buttons specific to Device 2 here -->
+    </div>
+    
+    <!-- Add more device sections as needed -->
+
+  </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Notification Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .notification {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+
+    .notification button {
+      background-color: #0056b3;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Notifications</h1>
+    <div class="notification">
+      New message received.
+      <button>Dismiss</button>
+    </div>
+    <div class="notification">
+      Your order has been shipped.
+      <button>Dismiss</button>
+    </div>
+  </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Weather Integration</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    #weather-data {
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Weather Integration</h1>
+    <div id="weather-data">
+      Loading weather data...
+    </div>
+  </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Energy Consumption Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f4f4f4;
+    }
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    form {
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Energy Consumption Calculator</h1>
+    <form id="energy-calculator">
+      <label for="device">Select Device:</label>
+      <select id="device" name="device">
+        <option value="device1">Device 1</option>
+        <option value="device2">Device 2</option>
+        <!-- Add more device options as needed -->
+      </select>
+      <br><br>
+
+      <label for="usage">Monthly Usage (kWh):</label>
+      <input type="number" id="usage" name="usage" required>
+      <br><br>
+
+      <label for="rate">Electricity Rate (per kWh):</label>
+      <input type="number" id="rate" name="rate" required>
+      <br><br>
+
+      <button type="submit">Calculate</button>
+    </form>
+
+    <div id="result" style="display: none;">
+      <h2>Energy Cost</h2>
+      <p id="cost">Estimated cost: $0.00</p>
+    </div>
+  </div>
+
+  <script>
+    const calculatorForm = document.getElementById('energy-calculator');
+    const resultDiv = document.getElementById('result');
+
+    calculatorForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const device = document.getElementById('device').value;
+      const usage = parseFloat(document.getElementById('usage').value);
+      const rate = parseFloat(document.getElementById('rate').value);
+      const cost = (usage * rate).toFixed(2);
+
+      document.getElementById('cost').textContent = `Estimated cost: $${cost}`;
+      resultDiv.style.display = 'block';
+    });
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Solar Energy Cost Savings Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f4f4f4;
+    }
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    form {
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Solar Energy Cost Savings Calculator</h1>
+    <form id="solar-calculator">
+      <label for="current-bill">Current Monthly Electricity Bill ($):</label>
+      <input type="number" id="current-bill" name="current-bill" required>
+      <br><br>
+
+      <label for="solar-production">Monthly Solar Energy Production (kWh):</label>
+      <input type="number" id="solar-production" name="solar-production" required>
+      <br><br>
+
+      <button type="submit">Calculate Savings</button>
+    </form>
+
+    <div id="result" style="display: none;">
+      <h2>Cost Savings</h2>
+      <p id="savings">Estimated monthly savings: $0.00</p>
+    </div>
+  </div>
+
+  <script>
+    const calculatorForm = document.getElementById('solar-calculator');
+    const resultDiv = document.getElementById('result');
+
+    calculatorForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const currentBill = parseFloat(document.getElementById('current-bill').value);
+      const solarProduction = parseFloat(document.getElementById('solar-production').value);
+      const electricityCostPerKWh = 0.12; // Replace with your actual electricity cost
+
+      const savings = (solarProduction * electricityCostPerKWh - currentBill).toFixed(2);
+
+      document.getElementById('savings').textContent = `Estimated monthly savings: $${savings}`;
+      resultDiv.style.display = 'block';
+    });
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Energy Data Review</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f4f4f4;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    h1 {
+      font-size: 24px;
+    }
+    .data-display {
+      text-align: center;
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .data-table th,
+    .data-table td {
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+    .data-table th {
+      background-color: #007bff;
+      color: #fff;
+    }
+    .data-table th:first-child,
+    .data-table td:first-child {
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Energy Data Review</h1>
+    <div class="data-display">
+      <label for="time-period">Select Time Period:</label>
+      <select id="time-period" name="time-period">
+        <option value="last-7-days">Last 7 Days</option>
+        <option value="last-30-days">Last 30 Days</option>
+        <option value="custom">Custom</option>
+      </select>
+      <br><br>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Energy Production (kWh)</th>
+            <th>Energy Consumption (kWh)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Sample data rows go here -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Solar Information by Location</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f4f4f4;
+    }
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    h1 {
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Solar Information by Location</h1>
+    <button id="get-solar-info">Get Solar Info</button>
+    <div id="solar-info" style="display: none;">
+      <p>Solar Irradiance: <span id="irradiance">N/A</span> W/m²</p>
+      <p>Sunrise Time: <span id="sunrise">N/A</span></p>
+      <p>Sunset Time: <span id="sunset">N/A</span></p>
+      <p>Local Incentives: <span id="incentives">N/A</span></p>
+    </div>
+  </div>
+
+  <script>
+    const getSolarInfoButton = document.getElementById('get-solar-info');
+    const solarInfoDiv = document.getElementById('solar-info');
+    const irradianceSpan = document.getElementById('irradiance');
+    const sunriseSpan = document.getElementById('sunrise');
+    const sunsetSpan = document.getElementById('sunset');
+    const incentivesSpan = document.getElementById('incentives');
+
+    getSolarInfoButton.addEventListener('click', () => {
+      if ('geolocation' in navigator) {
+        navigator.geolocation.getCurrentPosition((position) => {
+          // Simulated solar information, replace with actual data from an API or database
+          const solarData = {
+            irradiance: 800,
+            sunrise: '06:30 AM',
+            sunset: '06:00 PM',
+            incentives: '10% tax credit'
+          };
+
+          irradianceSpan.textContent = solarData.irradiance;
+          sunriseSpan.textContent = solarData.sunrise;
+          sunsetSpan.textContent = solarData.sunset;
+          incentivesSpan.textContent = solarData.incentives;
+
+          solarInfoDiv.style.display = 'block';
+        }, () => {
+          alert('Error getting location data. Please enable location services.');
+        });
+      } else {
+        alert('Geolocation is not supported in your browser.');
+      }
+    });
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Customer Support</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f4f4f4;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    h1 {
+      font-size: 24px;
+    }
+    .tabs {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+    .tab {
+      cursor: pointer;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .content {
+      display: none;
+    }
+    .content.active {
+      display: block;
+    }
+    p {
+      font-size: 18px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Customer Support</h1>
+    <div class="tabs">
+      <div class="tab" id="faq-tab">FAQs</div>
+      <div class="tab" id="troubleshooting-tab">Troubleshooting</div>
+      <div class="tab" id="contact-tab">Contact Support</div>
+    </div>
+    <div class="content" id="faq-content">
+      <p>Commonly asked questions and answers go here.</p>
+    </div>
+    <div class="content" id="troubleshooting-content">
+      <p>Troubleshooting guides and instructions go here.</p>
+    </div>
+    <div class="content" id="contact-content">
+      <p>If you need further assistance, please contact our support team at support@example.com.</p>
+    </div>
+  </div>
+
+  <script>
+    const tabs = document.querySelectorAll('.tab');
+    const contents = document.querySelectorAll('.content');
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => {
+        tabs.forEach((t) => t.classList.remove('active'));
+        contents.forEach((c) => c.classList.remove('active'));
+
+        tab.classList.add('active');
+        contents[index].classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
